@@ -8,6 +8,17 @@ app.config(($routeProvider,$locationProvider)=>{
     storageBucket: "priya-firebase-auth.appspot.com",
     messagingSenderId: "639639001017"
   });
+  const checkForAuth = {
+      checkForAuth ($location) {
+        // http://stackoverflow.com/questions/37370224/firebase-stop-listening-onauthstatechanged
+        const authReady = firebase.auth().onAuthStateChanged(user => {
+          authReady()
+          if (!user) {
+            $location.url('/login')
+          }
+        })
+      }
+    }
   $locationProvider.hashPrefix("")
   $routeProvider
     .when("/",{
@@ -20,6 +31,11 @@ app.config(($routeProvider,$locationProvider)=>{
     })
     .when("/createPost",{
       controller: "CreatepostCtrl",
-      templateUrl: "partials/createpost.html"
+      templateUrl: "partials/createpost.html",
+      resolve: checkForAuth
+    })
+    .when("/register",{
+      controller: "RegisterCtrl",
+      templateUrl: "partials/register.html"
     })
 })

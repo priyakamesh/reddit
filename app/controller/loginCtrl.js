@@ -7,4 +7,7 @@ app.controller("LoginCtrl", function($scope,$location){
       $scope.$apply()
     })
   }
+  $scope.register = ()=>{
+    $location.url("/register")
+  }
 })

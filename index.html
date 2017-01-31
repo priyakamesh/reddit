@@ -12,7 +12,7 @@
         <a href="#!" class="brand-logo">Reddit</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#/login">Login</a></li>
-          <li><a href="#/createPost">Create Post</a></li>
+          <li><a data-target="modal1" href="#/createPost" class="btn" ng-click= "createPost()">Create Post</a></li>
         </ul>
       </div>
     </nav>
@@ -26,9 +26,11 @@
   <script src="/lib/firebase/firebase.js"></script>
   <script src="/lib/materialize/dist/js/materialize.js"></script>
  <script src="/app/app.js"></script>
-
+ <script src="/app/Factories/authFactory.js"></script>
+<script src="/app/controller/createpostCtrl.js"></script>
  <script src="/app/controller/homeCtrl.js"></script>
  <script src="/app/controller/loginCtrl.js"></script>
- <script src="/app/controller/createpostCtrl.js"></script>
+
+ <script src="/app/controller/registerCtrl.js"></script>
 </body>
 </html>
