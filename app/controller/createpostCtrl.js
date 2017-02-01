@@ -49,7 +49,8 @@ app.controller("CreatepostCtrl",function($scope,$location,$http,authFactory){
                Title: $scope.postTitle,
                link: $scope.postUrl,
                user : $scope.email,
-               uid : $scope.uid
+               uid : $scope.uid,
+               counter: 0
               })
             })
          })

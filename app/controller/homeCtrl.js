@@ -1,5 +1,10 @@
 app.controller("HomeCtrl", function($scope,$http){
 
+// $(".getIt").append( `<button ng-disabled="isDisabled" ng-click= "doLike(key)">
+//             <i class="material-icons">thumb_up</i></button>
+//             {$scope.counter}
+//             <button ng-disabled="isDisabled" ng-click= "dontLike(key)">
+//              <i class="material-icons">thumb_down</i></button>`)
 
    $http.get(`https://priya-firebase-auth.firebaseio.com/Pictures/.json`)
      .then((data)=>{
@@ -8,6 +13,7 @@ app.controller("HomeCtrl", function($scope,$http){
         // .then((data)=>{
           $scope.Pictures = data.data
           console.log($scope.Pictures)
+          // $scope.counter = 0;
 
       // $scope.uid = authFactory.setter()
       // $http.get(`https://priya-firebase-auth.firebaseio.com/Users/${$scope.uid}.json` )
@@ -15,38 +21,35 @@ app.controller("HomeCtrl", function($scope,$http){
       //      $scope.Users = data.data
       //    })
 
-      $scope.counter = 0;
-      $scope.doLike = (key)=>{
 
-        $scope.counter +=1
-        console.log(key)
+       $scope.doLike = (key)=>{
+        // $scope.counter = data.data[key].counter
+        console.log($scope.counter)
+        ++data.data[key].counter
+        // $scope.counter = data.data[key].counter
+        console.log(data.data[key].counter)
         $http.patch(`https://priya-firebase-auth.firebaseio.com/Pictures/${key}.json`,{
-          // voted:
+          counter : data.data[key].counter
         })
-        alert("i like it")
+        // .then((data)=>{
+        //   $scope.counter = data.data.counter
+        // })
+
+
         // $scope.isDisabled = true;
      }
       $scope.dontLike = (key)=>{
+        --data.data[key].counter
 
-        $scope.counter -= 1
         $http.patch(`https://priya-firebase-auth.firebaseio.com/Pictures/${key}.json`,{
-          // voted: false
+          counter : data.data[key].counter
         })
-        alert("i dont like it")
+        // $scope.isDisabled = true;
 
     }
-
-     // if($scope.doLike)
-     //  {$scope.counter = $scope.counter++}
-     //  else ($scope.dontLike)
-     //    {$scope.counter = $scope.counter--}
      })
 
 
-    // document.getElementById("getIt").innerHTML="<button ng-disabled="isDisabled" ng-click= "doLike(key)">
-    //         <i class="material-icons">thumb_up</i></button>
-    //         {$scope.counter}
-    //         <button ng-disabled="isDisabled" ng-click= "dontLike(key)">
-    //          <i class="material-icons">thumb_down</i></button>"
+
 
 })
