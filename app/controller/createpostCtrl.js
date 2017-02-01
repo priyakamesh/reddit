@@ -1,4 +1,4 @@
-app.controller("CreatepostCtrl",function($scope){
+app.controller("CreatepostCtrl",function($scope,$location,$http,authFactory){
    $('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
       opacity: .5, // Opacity of modal background
@@ -13,7 +13,7 @@ app.controller("CreatepostCtrl",function($scope){
     }
   );
 
-  $scope.createPost = ()=> {
+
     let storageRef = firebase.storage().ref();
 
     let inputElement = document.getElementById("fileInput");
@@ -27,17 +27,37 @@ app.controller("CreatepostCtrl",function($scope){
         console.log('Uploaded a blob or file!');
 
 
-    storageRef.child(fileList[0].name).getDownloadURL()
-    .then((url)=>{
-      var img =document.getElementById("myImg")
-      img.src = url;
-    })
-    .catch((error)=>{
-      alert("error")
-    })
-    });
-  }
+          storageRef.child(fileList[0].name).getDownloadURL()
+          .then((url)=>{
+            $location.path("/")
+            $scope.url = url
 
 
-  }
+            $http.get(`https://priya-firebase-auth.firebaseio.com/Users/.json`)
+            .then((data)=>{
+              console.log(data)
+              $scope.uid = authFactory.getUid().uid
+              console.log($scope.uid)
+
+              $scope.email = authFactory.getUid().email
+              console.log($scope.email)
+
+              $http.post(`https://priya-firebase-auth.firebaseio.com/Pictures/.json`,
+              {
+               key : $scope.key,
+               url : $scope.url,
+               Title: $scope.postTitle,
+               link: $scope.postUrl,
+               user : $scope.email,
+               uid : $scope.uid
+              })
+            })
+         })
+          .catch((error)=>{
+
+            alert("error")
+          })
+
+})
+}
 })

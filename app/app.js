@@ -38,4 +38,8 @@ app.config(($routeProvider,$locationProvider)=>{
       controller: "RegisterCtrl",
       templateUrl: "partials/register.html"
     })
+    .when("/logout",{
+      controller: "LogoutCtrl",
+      templateUrl: "partials/logout.html"
+    })
 })
