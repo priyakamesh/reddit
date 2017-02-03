@@ -42,4 +42,13 @@ app.config(($routeProvider,$locationProvider)=>{
       controller: "LogoutCtrl",
       templateUrl: "partials/logout.html"
     })
+    .when("/mostpopular",{
+      controller: "MostpopularCtrl",
+      templateUrl: "partials/mostpopularpost.html"
+    })
+    .when("/profile",{
+      controller: "ProfileCtrl",
+      templateUrl: "partials/profile.html",
+      resolve: checkForAuth
+    })
 })

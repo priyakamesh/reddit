@@ -1,0 +1,42 @@
+<a class="waves-effect waves-light btn" ng-click="myLikes($event)">Likes</a>
+ <a class="waves-effect waves-light btn" ng-click="myDislikes($event)">Dis Likes</a>
+<div class="picture">
+  <img src="http://larics.fer.hr/wp-content/uploads/2016/04/default-placeholder.png" id="myImg">
+  <input type="file" placeholder="Upload your profile pic" id="fileInput">
+</div>
+<div class="main">
+<div ng-repeat="(key,value) in likes"></div>
+  <div ng-repeat="myLike in myLikes" id="divID">
+  <div class="col s12 m6">
+  <div class="card">
+  <div class="card horizontal">
+      <!-- <div class="card-image"> -->
+              <!-- <div class="card-image"> -->
+    <p class= "title">Title: {{myLike.Title}}</p>
+
+     <a target="_blank" href="{{myLike.link}}"><img src="{{myLike.url}}"></a>
+
+
+  </div>
+  </div>
+
+  </div>
+  </div>
+  <div ng-repeat="(key,value) in disLikes"></div>
+  <div ng-repeat = "myDislike in myDislikes">
+    <div class="col s12 m6">
+  <div class="card">
+  <div class="card horizontal">
+      <!-- <div class="card-image"> -->
+              <!-- <div class="card-image"> -->
+    <p class= "title">Title: {{myDislike.Title}}</p>
+
+     <a target="_blank" href="{{myDislike.link}}"><img src="{{myDislike.url}}"></a>
+
+
+  </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
