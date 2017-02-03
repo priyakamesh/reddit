@@ -7,17 +7,17 @@
   <div class="col s12 m6">
   <div class="card">
 <div class="card horizontal">
-      <div class="card-image">
+      <!-- <div class="card-image"> -->
               <!-- <div class="card-image"> -->
-    <p>Title: {{value.Title}}</p>
+    <p class= "title">Title: {{value.Title}}</p>
     <p class = "getIt"><button  ng-click= "doLike(key,$event)">
               <i class="material-icons">thumb_up</i></button>
               {{value.counter}}
               <button ng-click= "dontLike(key,$event,userkey)">
                <i class="material-icons">thumb_down</i></button></p>
 
-    <img src="{{value.url}}">
-    <a target="_blank" href="{{value.link}}">Link</a>
+     <a target="_blank" href="{{value.link}}"><img src="{{value.url}}"></a>
+
 
     <p>Posted by {{value.user}}</p>
 
@@ -28,3 +28,19 @@
 
 </div>
 </div>
+
+
+ <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Create Post</h4>
+      <p>Here you can create your favorite post to Reddit!!!</p>
+      <input type="text" name="postTitle" placeholder="Post Title" ng-model="postTitle">
+      <input type="url" name="postUrl" placeholder="Link url" ng-model="postUrl">
+      <input type="file" name="inputFile" placeholder="Upload Your Post Photo" id="fileInput">
+      <input type="submit" value="Post" ng-click = "Post()">
+    </div>
+    <!-- <div class="modal-footer">
+      <a  class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click = "createPost()">Post</a>
+    </div> -->
+  </div>
