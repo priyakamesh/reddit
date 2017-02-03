@@ -1,22 +1,30 @@
 <h1>Popular Posts</h1>
+<div>
+  <!-- <div ng-repeat = "(dislikekey,value) in dislikes"></div> -->
 
-<div ng-repeat = "(key,value) in Pictures" class="row">
-<div class="col s12 m6">
-<div class="card">
-            <div class="card-image">
-  <p>Title: {{value.Title}}</p>
-  <p class = "getIt"><button ng-disabled="isDisabled" ng-click= "doLike(key)">
-            <i class="material-icons">thumb_up</i></button>
-            {{value.counter}}
-            <button ng-disabled="isDisabled" ng-click= "dontLike(key)">
-             <i class="material-icons">thumb_down</i></button></p>
+  <div ng-repeat = "(key,value) in Pictures" class="row">
+   <!-- <div dir-paginate-start="(key,value) in Pictures | itemsPerPage: 10"> -->
+  <div class="col s12 m6">
+  <div class="card">
+<div class="card horizontal">
+      <div class="card-image">
+              <!-- <div class="card-image"> -->
+    <p>Title: {{value.Title}}</p>
+    <p class = "getIt"><button  ng-click= "doLike(key,$event)">
+              <i class="material-icons">thumb_up</i></button>
+              {{value.counter}}
+              <button ng-click= "dontLike(key,$event,userkey)">
+               <i class="material-icons">thumb_down</i></button></p>
 
-  <img src="{{value.url}}">
-<a target="_blank" href="{{value.link}}">Link</a>
+    <img src="{{value.url}}">
+    <a target="_blank" href="{{value.link}}">Link</a>
 
+    <p>Posted by {{value.user}}</p>
 
-<p>Posted by {{value.user}}</p>
-</div>
-</div>
+  </div>
+  </div>
+
+  </div>
+
 </div>
 </div>

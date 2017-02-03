@@ -1,4 +1,4 @@
-var app = angular.module("redditApp",["ngRoute"])
+var app = angular.module("redditApp",["ngRoute","angular-toArrayFilter","angularUtils.directives.dirPagination"])
 
 app.config(($routeProvider,$locationProvider)=>{
   firebase.initializeApp({
