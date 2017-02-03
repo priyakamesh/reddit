@@ -1,0 +1,26 @@
+<h1>Most Popular Post</h1>
+<div ng-repeat = "(key,value) in Pictures |toArray:false | orderBy:'-counter'" class="row">
+   <!-- <div dir-paginate-start="(key,value) in Pictures | itemsPerPage: 10"> -->
+  <div class="col s12 m6">
+  <div class="card">
+<div class="card horizontal">
+      <!-- <div class="card-image"> -->
+              <!-- <div class="card-image"> -->
+    <p class= "title">Title: {{value.Title}}</p>
+    <p class = "getIt"><button  ng-click= "like()">
+              <i class="material-icons">thumb_up</i></button>
+              {{value.counter}}
+              <button ng-click= "dontLike()">
+               <i class="material-icons">thumb_down</i></button></p>
+
+     <a target="_blank" href="{{value.link}}"><img src="{{value.url}}"></a>
+
+
+    <p>Posted by {{value.user}}</p>
+
+  </div>
+  </div>
+
+  </div>
+
+</div>

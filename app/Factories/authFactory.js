@@ -4,7 +4,7 @@ app.factory("authFactory",function () {
     return firebase.auth().createUserWithEmailAndPassword(user_email,user_password)
       .then ((data)=>{
         console.log(data.uid)
-        return UID = data.uid
+        return UID = data.uidx
 
       })
     },

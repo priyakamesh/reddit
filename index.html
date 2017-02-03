@@ -12,8 +12,12 @@
     <nav>
       <div class="nav-wrapper">
         <a href="#/" class="brand-logo">Reddit</a>
+
         <ul class="right hide-on-med-and-down">
           <li><a data-target="modal1" href="#/createPost" class="btn">Create Post</a></li>
+          <li><img id="myProfilePic" src="http://larics.fer.hr/wp-content/uploads/2016/04/default-placeholder.png"></li>
+          <li><a href="#/mostpopular">Popular Posts</a></li>
+          <li><a href="#/profile">My Profile</a></li>
           <li><a href="#/login">Login</a></li>
           <li><a href="#/logout" ng-click = "logout()">Logout</a></li>
 
@@ -42,5 +46,7 @@
  <script src="/app/controller/LogoutCtrl.js"></script>
  <script src="/app/controller/registerCtrl.js"></script>
  <script src="/app/controller/createpostCtrl.js"></script>
+ <script src="/app/controller/mostPopular.js"></script>
+ <script src="/app/controller/profile.js"></script>
 </body>
 </html>

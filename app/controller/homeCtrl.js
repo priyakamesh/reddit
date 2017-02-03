@@ -1,5 +1,8 @@
 app.controller("HomeCtrl", function($scope,$http,authFactory){
-
+// if(firebase.auth()currentUser){
+//   $http.get(`https://priya-firebase-auth.firebaseio.com/ProfilePicture/${$scope.uid}.json`)
+//   .then(console.log)
+// }
   $http.get( `https://priya-firebase-auth.firebaseio.com/Users/.json`)
         .then((data)=>{
 
@@ -15,6 +18,7 @@ app.controller("HomeCtrl", function($scope,$http,authFactory){
           $scope.Pictures = data.data
 
           console.log($scope.Pictures)
+
 
 //like function
         $http.get(`https://priya-firebase-auth.firebaseio.com/likes/.json`)
@@ -38,6 +42,7 @@ app.controller("HomeCtrl", function($scope,$http,authFactory){
                 --data.data[key].counter
                 $http.patch(`https://priya-firebase-auth.firebaseio.com/Pictures/${key}.json`,{
                   counter : data.data[key].counter
+
                 })
                  $scope.uid = authFactory.getUid().uid
                 $http.post(`https://priya-firebase-auth.firebaseio.com/likes/${$scope.uid}.json`,
@@ -61,6 +66,7 @@ app.controller("HomeCtrl", function($scope,$http,authFactory){
                              ++data.data[key].counter
                             $http.patch(`https://priya-firebase-auth.firebaseio.com/Pictures/${key}.json`,{
                               counter : data.data[key].counter
+
                             })
 
                             $http.post(`https://priya-firebase-auth.firebaseio.com/likes/${$scope.uid}.json`,
@@ -76,6 +82,7 @@ app.controller("HomeCtrl", function($scope,$http,authFactory){
               } else {++data.data[key].counter
                 $http.patch(`https://priya-firebase-auth.firebaseio.com/Pictures/${key}.json`,{
                   counter : data.data[key].counter
+
                 })
                  $scope.uid = authFactory.getUid().uid
                 $http.post(`https://priya-firebase-auth.firebaseio.com/likes/${$scope.uid}.json`,
@@ -109,6 +116,7 @@ app.controller("HomeCtrl", function($scope,$http,authFactory){
                 --data.data[key].counter
                 $http.patch(`https://priya-firebase-auth.firebaseio.com/Pictures/${key}.json`,{
                   counter : data.data[key].counter
+
                 })
                  $scope.uid = authFactory.getUid().uid
                 $http.post(`https://priya-firebase-auth.firebaseio.com/dislikes/${$scope.uid}.json`,
@@ -130,6 +138,7 @@ app.controller("HomeCtrl", function($scope,$http,authFactory){
                              --data.data[key].counter
                             $http.patch(`https://priya-firebase-auth.firebaseio.com/Pictures/${key}.json`,{
                               counter : data.data[key].counter
+
                             })
 
                             $http.post(`https://priya-firebase-auth.firebaseio.com/dislikes/${$scope.uid}.json`,
