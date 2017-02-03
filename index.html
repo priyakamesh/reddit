@@ -4,15 +4,20 @@
   <meta charset="UTF-8">
   <title>Reddit</title>
   <link rel="stylesheet" type="text/css" href="/lib/materialize/dist/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body ng-app="redditApp">
    <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Reddit</a>
+        <a href="#/" class="brand-logo">Reddit</a>
         <ul class="right hide-on-med-and-down">
+          <li><a data-target="modal1" href="#/createPost" class="btn">Create Post</a></li>
           <li><a href="#/login">Login</a></li>
-          <li><a data-target="modal1" href="#/createPost" class="btn" ng-click= "createPost()">Create Post</a></li>
+          <li><a href="#/logout" ng-click = "logout()">Logout</a></li>
+
+
         </ul>
       </div>
     </nav>
@@ -22,15 +27,20 @@
   <script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
   <script src="/lib/jquery/dist/jquery.js"></script>
   <script src="/lib/angular/angular.min.js"></script>
+  <script src="/lib/angular-toArrayFilter/toArrayFilter.js"></script>
   <script src="/lib/angular-route/angular-route.min.js"></script>
+  <script src="/lib/angularUtils-pagination/dirPagination.js"></script>
   <script src="/lib/firebase/firebase.js"></script>
   <script src="/lib/materialize/dist/js/materialize.js"></script>
+  <script src="/lib/lodash/lodash.js"></script>
  <script src="/app/app.js"></script>
  <script src="/app/Factories/authFactory.js"></script>
-<script src="/app/controller/createpostCtrl.js"></script>
+
+
  <script src="/app/controller/homeCtrl.js"></script>
  <script src="/app/controller/loginCtrl.js"></script>
-
+ <script src="/app/controller/LogoutCtrl.js"></script>
  <script src="/app/controller/registerCtrl.js"></script>
+ <script src="/app/controller/createpostCtrl.js"></script>
 </body>
 </html>

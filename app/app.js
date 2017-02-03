@@ -1,4 +1,4 @@
-var app = angular.module("redditApp",["ngRoute"])
+var app = angular.module("redditApp",["ngRoute","angular-toArrayFilter","angularUtils.directives.dirPagination"])
 
 app.config(($routeProvider,$locationProvider)=>{
   firebase.initializeApp({
@@ -37,5 +37,9 @@ app.config(($routeProvider,$locationProvider)=>{
     .when("/register",{
       controller: "RegisterCtrl",
       templateUrl: "partials/register.html"
+    })
+    .when("/logout",{
+      controller: "LogoutCtrl",
+      templateUrl: "partials/logout.html"
     })
 })
