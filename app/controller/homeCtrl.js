@@ -14,7 +14,7 @@ app.controller("HomeCtrl", function($scope,$http,authFactory){
         .then ((data)=> {
           $scope.Pictures = data.data
 
-
+          console.log($scope.Pictures)
 
 //like function
         $http.get(`https://priya-firebase-auth.firebaseio.com/likes/.json`)
