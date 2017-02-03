@@ -31,7 +31,7 @@ app.config(($routeProvider,$locationProvider)=>{
     })
     .when("/createPost",{
       controller: "CreatepostCtrl",
-      templateUrl: "partials/createpost.html",
+      templateUrl: "partials/home.html",
       resolve: checkForAuth
     })
     .when("/register",{

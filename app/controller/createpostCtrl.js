@@ -1,7 +1,7 @@
 app.controller("CreatepostCtrl",function($scope,$location,$http,authFactory){
    $('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
-      opacity: .5, // Opacity of modal background
+      // opacity: .5, // Opacity of modal background
       inDuration: 300, // Transition in duration
       outDuration: 200, // Transition out duration
       startingTop: '4%', // Starting top style attribute
@@ -9,10 +9,15 @@ app.controller("CreatepostCtrl",function($scope,$location,$http,authFactory){
       ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
         console.log(modal, trigger);
       },
-      complete: function() { console.log('Closed'); } // Callback for Modal close
-    }
-  );
+      complete: function () { $(".modal").modal("close") } // Callback for Modal close
+      })
 
+   $scope.Post = ()=>{
+    $(".modal").modal("close")
+    $location.path("/");
+
+    // $scope.$apply()
+   }
 
     let storageRef = firebase.storage().ref();
 
