@@ -9,9 +9,12 @@ app.factory("authFactory",function () {
       })
     },
     setter : (user_email,user_password)=>{
+
       return firebase.auth().signInWithEmailAndPassword(user_email,user_password)
-      then ((data)=>{
-        console.log(data)
+      .then((data)=>{})
+      .catch ((data)=>{
+        alert(data.message)
+
       })
     },
 

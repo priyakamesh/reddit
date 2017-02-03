@@ -15,11 +15,11 @@ app.controller("CreatepostCtrl",function($scope,$location,$http,authFactory){
       complete: function () { $(".modal").modal("close") } // Callback for Modal close
       })
 
-   $scope.Post = ()=>{
-    $(".modal").modal("close")
+   $scope.cancel = ()=>{
+    $("#modal1").modal("close")
     $location.path("/");
 
-    // $scope.$apply()
+   //  // $scope.$apply()
    }
 
     let storageRef = firebase.storage().ref();
@@ -60,6 +60,13 @@ app.controller("CreatepostCtrl",function($scope,$location,$http,authFactory){
                uid : $scope.uid,
                counter: 0
               })
+              .then((data)=>{
+                $("#modal1").modal("close")
+                $location.url("/")
+                // $scope.$apply()
+
+              })
+
             })
          })
           .catch((error)=>{
@@ -70,4 +77,5 @@ app.controller("CreatepostCtrl",function($scope,$location,$http,authFactory){
 })
 }
 }
+
 })

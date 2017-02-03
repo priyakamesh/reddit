@@ -3,6 +3,8 @@ app.controller("HomeCtrl", function($scope,$http,authFactory){
 //   $http.get(`https://priya-firebase-auth.firebaseio.com/ProfilePicture/${$scope.uid}.json`)
 //   .then(console.log)
 // }
+
+
   $http.get( `https://priya-firebase-auth.firebaseio.com/Users/.json`)
         .then((data)=>{
 
